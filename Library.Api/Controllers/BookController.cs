@@ -39,8 +39,14 @@ namespace Library.Api.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<Book>> Update(int id, Book bookValue)
         {
-            
             return Ok(await _repository.UpdateAsync(id, bookValue));
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            await _repository.DeleteAsync(id);
+            return Ok();
         }
     }
 }

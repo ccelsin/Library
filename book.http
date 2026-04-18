@@ -3,6 +3,10 @@ GET http://localhost:5132/api/book
 ###
 GET http://localhost:5132/api/book/4
 
+###
+DELETE http://localhost:5132/api/book/3
+
+
 
 ###
 POST http://localhost:5132/api/book
