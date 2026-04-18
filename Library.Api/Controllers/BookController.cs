@@ -26,6 +26,14 @@ namespace Library.Api.Controllers
         public async Task<ActionResult> Add(Book book)
         {
             await _repository.AddAsync(book);
+            await _repository.SaveAsync();
+            return Ok(book);
+        }
+
+        [HttpGet("{id}")]
+        public async Task <ActionResult> GetBook(int id)
+        {
+            Book? book = await  _repository.GetByIdAsync(id);
             return Ok(book);
         }
     }

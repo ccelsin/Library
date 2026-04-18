@@ -19,9 +19,19 @@ public class BookRepository:IBookRepository
         return await _context.Books.ToListAsync();
     }
 
+    public async Task<Book?> GetByIdAsync(int id)
+    {
+        return await _context.Books.FindAsync(id);
+    }
+
     public async Task AddAsync(Book book)
     {
         _context.Books.Add(book);
+    }
+
+    public async Task SaveAsync()
+    {
+        await _context.SaveChangesAsync();
     }
 
 }

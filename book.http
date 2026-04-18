@@ -1,5 +1,8 @@
 GET http://localhost:5132/api/book
 
+###
+GET http://localhost:5132/api/book/2
+
 
 ###
 POST http://localhost:5132/api/book
@@ -8,6 +11,16 @@ Content-Type : application/json
 {
     "title": "Les dents de la mers",
     "author": "Kemuza Leon",
+    "releaseDate": "2021-05-11"
+}
+
+###
+POST http://localhost:5132/api/book
+Content-Type : application/json
+
+{
+    "title": "La mer des monstres ",
+    "author": "Percy",
     "releaseDate": "2021-05-11"
 }
     
