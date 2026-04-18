@@ -14,10 +14,19 @@ namespace Library.Api.Controllers
         {
             _repository = repository;
         }
+
+        [HttpGet]
         public async Task<ActionResult<List<Book>>> GetAll()
         {
             var books = await _repository.GetAllAsync();
             return Ok(books);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Add(Book book)
+        {
+            await _repository.AddAsync(book);
+            return Ok(book);
         }
     }
 }

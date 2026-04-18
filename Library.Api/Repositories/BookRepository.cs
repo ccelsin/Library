@@ -17,7 +17,11 @@ public class BookRepository:IBookRepository
     public async Task<List<Book>> GetAllAsync()
     {
         return await _context.Books.ToListAsync();
-        
+    }
+
+    public async Task AddAsync(Book book)
+    {
+        _context.Books.Add(book);
     }
 
 }

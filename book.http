@@ -1,1 +1,13 @@
 GET http://localhost:5132/api/book
+
+
+###
+POST http://localhost:5132/api/book
+Content-Type : application/json
+
+{
+    "title": "Les dents de la mers",
+    "author": "Kemuza Leon",
+    "releaseDate": "2021-05-11"
+}
+    
