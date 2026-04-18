@@ -27,11 +27,32 @@ public class BookRepository:IBookRepository
     public async Task AddAsync(Book book)
     {
         _context.Books.Add(book);
+        await _context.SaveChangesAsync();
     }
 
-    public async Task SaveAsync()
+    public async Task<Book?> UpdateAsync(int id, Book newBook)
     {
-        await _context.SaveChangesAsync();
+        Book? book = await _context.Books.FindAsync(id);
+        if(book != null)
+        {
+            book.Title = newBook.Title;
+            book.Author = newBook.Author;
+            book.ReleaseDate = newBook.ReleaseDate;
+            _context.Books.Update(book);
+            await _context.SaveChangesAsync();
+            
+        }
+        return book;
+        
+    }
+
+    public async Task DeleteAsync(int id)
+    {
+        Book? book = await _context.Books.FindAsync(id);
+        if(book != null)
+        {
+            _context.Books.Remove(book);
+        }
     }
 
 }

@@ -1,7 +1,7 @@
 GET http://localhost:5132/api/book
 
 ###
-GET http://localhost:5132/api/book/2
+GET http://localhost:5132/api/book/4
 
 
 ###
@@ -15,11 +15,11 @@ Content-Type : application/json
 }
 
 ###
-POST http://localhost:5132/api/book
+PUT http://localhost:5132/api/book/4
 Content-Type : application/json
 
 {
-    "title": "La mer des monstres ",
+    "title": "La mer des GRAND ",
     "author": "Percy",
     "releaseDate": "2021-05-11"
 }

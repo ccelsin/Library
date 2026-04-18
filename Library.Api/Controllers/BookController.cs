@@ -26,7 +26,6 @@ namespace Library.Api.Controllers
         public async Task<ActionResult> Add(Book book)
         {
             await _repository.AddAsync(book);
-            await _repository.SaveAsync();
             return Ok(book);
         }
 
@@ -35,6 +34,13 @@ namespace Library.Api.Controllers
         {
             Book? book = await  _repository.GetByIdAsync(id);
             return Ok(book);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Book>> Update(int id, Book bookValue)
+        {
+            
+            return Ok(await _repository.UpdateAsync(id, bookValue));
         }
     }
 }

@@ -11,7 +11,8 @@ public interface IBookRepository
 
     Task AddAsync(Book book);
 
-    Task SaveAsync();
-    
+    Task <Book?> UpdateAsync(int id, Book newBook);
 
+    Task DeleteAsync(int id);
+    
 }
