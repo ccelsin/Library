@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: library-api
+    ports:
+      - "5132:5132"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Data Source=/data/library.db
+    volumes:
+      - library-data:/data
+    networks:
+      - library-network
+
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    container_name: library-client
+    ports:
+      - "5173:5173"
+    depends_on:
+      - api
+    networks:
+      - library-network
+
+volumes:
+  library-data:
+
+networks:
+  library-network:
+    driver: bridge
