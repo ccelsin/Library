@@ -23,9 +23,6 @@ services:
     networks:
       - library-network
 
-volumes:
-  library-data:
-
 networks:
   library-network:
     driver: bridge

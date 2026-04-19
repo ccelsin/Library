@@ -16,7 +16,7 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddDbContext<BookDbContext>(options =>
-    options.UseSqlite("Data Source=book.db"));
+    options.UseSqlite(builder.Configuration.GetConnectionString("BookDb")));
 
 builder.Services.AddControllers();
 
