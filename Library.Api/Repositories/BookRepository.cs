@@ -38,7 +38,7 @@ public class BookRepository:IBookRepository
             book.Title = newBook.Title;
             book.Author = newBook.Author;
             book.ReleaseDate = newBook.ReleaseDate;
-            _context.Books.Update(book);
+
             await _context.SaveChangesAsync();
             
         }

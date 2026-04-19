@@ -30,9 +30,13 @@ namespace Library.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task <ActionResult> GetBook(int id)
+        public async Task<ActionResult> GetBook(int id)
         {
-            Book? book = await  _repository.GetByIdAsync(id);
+            Book? book = await _repository.GetByIdAsync(id);
+            if (book == null)
+            {
+                return NotFound();
+            }
             return Ok(book);
         }
 
